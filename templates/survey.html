@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Choose a Survey!{% endblock %}
+
+{% block content %}
+
+    <h1>Choose a Survey</h1>
+
+    {% for survey_id, survey in surveys.items() %}
+        <h2>{{ survey.title}}</h2>
+        <p>{{ survey.instructions }}</p>
+        <a href="{{ url_for('start_survey', survey_id=survey_id, question_id=0) }}" class="button">Start Survey</a>
+
+    {% endfor %}
+
+{% endblock %}
